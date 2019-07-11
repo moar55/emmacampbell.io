@@ -1,24 +1,22 @@
+// tsconfig.json
+
 {
     "compilerOptions" : {
         "module" : "commonjs",
         "esModuleInterop" : true,
+        "pretty" : true,
         "allowSyntheticDefaultImports" : true,
         "target" : "es6",
         "noImplicitAny" : true,
         "moduleResolution" : "node",
         "sourceMap" : true,
         "outDir" : "dist",
-        "baseUrl" : ".",
-        "paths" : {
-            "*" : [
-                "node_modules/*"
-            ]
-        },
+        "baseUrl" : "./src",
     },
     "include" : [
-        "src/**/*"
+        "src/**/*.ts"
     ],
     "exclude" : [
-        "src/client"
+        "node_modules"
     ]
 }
