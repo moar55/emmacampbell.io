@@ -2,13 +2,13 @@
   "name": "emmacampbell.io",
   "version": "1.0.0",
   "description": "Web app",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
     "prestart": "npm run build",
     "start": "node ./dist/server.js",
-    "dev": "nodemon src/server.ts",
+    "dev": "nodemon api/server.ts",
     "prod": "npm run build && npm run start"
   },
   "repository": {
@@ -30,7 +30,10 @@
     "mongoose": "^5.6.4",
     "passport": "^0.4.0",
     "passport-google": "^0.3.0",
-    "passport-local": "^1.0.0"
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "ts-node": "^8.3.0",
+    "typegoose": "^5.8.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.0",
@@ -43,6 +46,7 @@
     "nodemon": "^1.19.1",
     "ts-node-dev": "^1.0.0-pre.32",
     "tslint": "^5.13.1",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.3.3333",
+    "winston": "^3.2.1"
   }
 }
