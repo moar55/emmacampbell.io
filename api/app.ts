@@ -1,32 +1,30 @@
-// src/app.ts
-import express from "express";
-import bodyParser from "body-parser";
-import mongoose from 'mongoose';
-import { UserRoutes } from "./routes/user.routes";
-import { Database } from "./config/database";
-
-require('dotenv').config();
+// app.ts
+import express from 'express';
+import bodyParser from 'body-parser';
+import { IndexRoute } from './routes/index';
 
 class App {
 
     public app: express.Application;
-    public userRouter: UserRoutes = new UserRoutes();
-    public db: Database;
+    public indxRouter: IndexRoute = new IndexRoute();
 
     constructor() {
         this.app = express();
         this.config();
-        this.userRouter.routes(this.app);
-
-        this.db = new Database(process.env.DB_HOST, process.env.DB_PORT);
+        this.indxRouter.routes(this.app);
     }
 
     private config(): void {
-        // suport application/json type post data
-        this.app.use(bodyParser.json());
 
-        // support application/x-www-form-urlencoded post data
-        this.app.use(bodyParser.urlencoded({ extended: false }));
+        let app = this.app;
+
+        // CONFIGURATIONS
+        // |
+        // |
+        // V
+
+        app.use(bodyParser.json());
+        app.use(bodyParser.urlencoded({ extended: false }));
     }
 }
 

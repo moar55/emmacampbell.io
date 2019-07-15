@@ -1,9 +1,13 @@
-// src/server.ts
-import app from './app';
+import app from "./app";
+import 'dotenv/config';
 
-const PORT = process.env.PORT || 8080;
+const {
+    DB_HOST,
+    DB_PORT,
+    HOST,
+    PORT
+} = process.env;
 
 app.listen(PORT, () => {
-    console.log('Server listening on http://localhost:' + PORT);
+    console.log("Server access: http://" + HOST + ":" + PORT);
 });
-
