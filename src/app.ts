@@ -1,15 +1,14 @@
 import { Request, Response, NextFunction } from "express";
-import * as express from "express";
-import * as mongoose from "mongoose";
+import express from "express";
+import mongoose from "mongoose";
 
-import * as logger from "morgan";
-import * as dotenv from "dotenv";
-import * as bodyParser from "body-parser";
+import logger from "morgan";
+import dotenv from "dotenv";
+import bodyParser from "body-parser";
 
 const {
     MONGO_URI,
     NODE_ENV,
-    PORT
 } = process.env;
 
 export class App {
@@ -28,8 +27,8 @@ export class App {
     /*-------------Configure------------*/
     private config() {
         this.configMiddleware();
-        this.connectMongo();
-        this.app.use(PORT);
+        //this.connectMongo();
+        //this.app.use(PORT);
     }
 
 
@@ -48,7 +47,6 @@ export class App {
     private connectMongo () {
         mongoose.connect(MONGO_URI, { useNewUrlParser :  true});
     }
-
-
-
 }
+
+export default new App().app;

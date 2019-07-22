@@ -11,10 +11,10 @@
         "moduleResolution" : "node",
         "sourceMap" : true,
         "outDir" : "dist",
-        "baseUrl" : "./api",
+        "baseUrl" : "./src",
     },
     "include" : [
-        "api/**/*.ts"
+        "src/api/**/*.ts"
     ],
     "exclude" : [
         "node_modules"
