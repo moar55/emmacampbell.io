@@ -1,25 +1,32 @@
 /**
  *
  */
-import { Schema, model } from "mongoose";
+import * as mongoose from "mongoose";
 
+const Schema = mongoose.Schema;
 
-let schema: Schema  = new Schema({
-    name     : String,
-    email    : {
+export const userSchema = new Schema({
+    first: {
+        type: String,
+        required: "Enter a first name"
+    },
+    last : {
+        type: String,
+        required: "Enter a last name"
+    },
+    email : {
         type : String,
-        unique: true,
+        unique : true,
+        required: "Email cannot be blank"
     },
     password : {
-        type : String,
-        minlength : 8,
-            maxlength : 28,
-            required: true,
+        type: String,
+        minlength: 8,
+        maxlength: 28,
+        required: "Password cannot be blank"
     },
-    role : Role,
+    created : {
+        type: Date,
+        default: Date.now
+    }
 });
-
-type Role = [
-    "ADMIN",
-    "USER"
-];
